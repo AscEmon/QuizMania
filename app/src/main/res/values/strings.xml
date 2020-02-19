@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OnlineTestExam</string>
+    <string name="app_name">QuizMania</string>
     <string name="Name">Name</string>
     <string name="AlreadyAccount">Already have an account? <u>Click Here</u></string>
     <string name="SignUp"> <u>SignUp</u></string>
@@ -8,7 +8,6 @@
 
     <string name="facebook_app_id">2613015708919960</string>
     <string name="fb_login_protocol_scheme">fb2613015708919960</string>
-
 
 
 </resources>

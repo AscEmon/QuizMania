@@ -6,6 +6,7 @@
     xmlns:Linear="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/DepartmentCardView"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:layout_margin="4dp"

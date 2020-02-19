@@ -3,6 +3,7 @@ package com.example.onlinetestexam;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,7 +38,6 @@ public class NavigationDrawer extends AppCompatActivity {
     FirebaseAuth mAuth;
 
 
-
     DatabaseReference reference;
     List<DataModel> dataModels;
     RecycleViewAdapter adapter;
@@ -47,6 +48,7 @@ public class NavigationDrawer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
 
         navigationView=findViewById(R.id.NavigationDrawerId);
         mAuth=FirebaseAuth.getInstance();
@@ -70,13 +72,30 @@ public class NavigationDrawer extends AppCompatActivity {
 
 
         recyclerView=findViewById(R.id.RecycleViewId);
-        adapter = new RecycleViewAdapter(this, dataModels);
+        adapter = new RecycleViewAdapter(this,dataModels);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
 
+
+        adapter.setOnItemClickListener(new RecycleViewAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+
+                if(position==1) {
+
+                    Intent CseDash = new Intent(getApplicationContext(), CseDashBoard.class);
+                    startActivity(CseDash);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"This is not adjust listener",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -95,8 +114,12 @@ public class NavigationDrawer extends AppCompatActivity {
                     case R.id.navi_signout:
                         FirebaseAuth.getInstance().signOut();
                         finish();
-                        Intent signout=new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(signout);
+                        Intent signOut=new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(signOut);
+
+                    case R.id.navi_Home:
+                        Intent i=new Intent(getApplicationContext(),NavigationDrawer.class);
+                        startActivity(i);
 
 
                 }
@@ -156,6 +179,7 @@ public class NavigationDrawer extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }
