@@ -18,7 +18,7 @@ import java.util.List;
 
 public class CseRecycleViewAdapter extends RecyclerView.Adapter<CseRecycleViewAdapter.ViewHolder>{
 
-
+private static ClickSoftListener clickSoftListener;
 
     private Context context;
     List<CseDataModel> csedataModels;
@@ -55,7 +55,7 @@ public class CseRecycleViewAdapter extends RecyclerView.Adapter<CseRecycleViewAd
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
         public TextView textView;
@@ -63,17 +63,30 @@ public class CseRecycleViewAdapter extends RecyclerView.Adapter<CseRecycleViewAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
             textView=itemView.findViewById(R.id.CseDashSampleTextId);
-
-
+            itemView.setOnClickListener(this);
 
 
         }
 
 
+        @Override
+        public void onClick(View v) {
+            clickSoftListener.onItemClick(getAdapterPosition(),v);
+
+        }
     }
 
+    public interface ClickSoftListener{
+        void onItemClick(int position, View v);
+
+
+    }
+    public void setOnItemClickListener(CseRecycleViewAdapter.ClickSoftListener clickSoftListener)
+    {
+        CseRecycleViewAdapter.clickSoftListener=clickSoftListener;
+
+    }
 
 
 

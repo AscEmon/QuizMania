@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".QuestionActivity"></activity>
+        <activity android:name=".SoftwareSubActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -33,7 +34,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".CseDashBoard"/>
+        <activity android:name=".CseDashBoard" />
         <activity android:name=".PasswordRecovery" />
         <activity android:name=".NavigationDrawer" />
         <activity android:name=".SignUp" />

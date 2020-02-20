@@ -10,8 +10,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -71,6 +73,25 @@ public class CseDashBoard extends AppCompatActivity {
         cserecyclerView.setHasFixedSize(true);
         cserecyclerView.setAdapter(adapter);
 
+
+        adapter.setOnItemClickListener(new CseRecycleViewAdapter.ClickSoftListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+
+
+                if(position==0)
+                {
+                    Intent setsSoftware=new Intent(getApplicationContext(),SoftwareSubActivity.class);
+                    startActivity(setsSoftware);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"This is not adjust listener",Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
 
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
