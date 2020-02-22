@@ -113,10 +113,10 @@ public class NavigationDrawer extends AppCompatActivity {
                         return  true;
                     case R.id.navi_signout:
                         FirebaseAuth.getInstance().signOut();
-                        finish();
                         Intent signOut=new Intent(getApplicationContext(),MainActivity.class);
                         startActivity(signOut);
-
+                        finish();
+                        break;
                     case R.id.navi_Home:
                         Intent i=new Intent(getApplicationContext(),NavigationDrawer.class);
                         startActivity(i);

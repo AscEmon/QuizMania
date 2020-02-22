@@ -52,68 +52,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="10dp">
-
-
-
-            <Button
-                android:id="@+id/softEasyOp1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="A"
-                android:textSize="12sp"
-                android:layout_marginLeft="8dp"
-                android:textStyle="bold"
-                android:padding="8dp"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#0E0A0A">
-
-            </Button>
-
-                <Button
-                    android:id="@+id/softEasyOp2"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp">
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:clickable="true"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:text="B"
-                    android:padding="8dp"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="#0E0A0A">
+                    android:layout_height="match_parent"
+                    >
 
-                </Button>
+                    <RadioButton
+                        android:id="@+id/softEasyOp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:textSize="12sp"
+                        android:textColor="#0A0707"
+
+                        />
+                    <RadioButton
+                        android:id="@+id/softEasyOp2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        android:textSize="12sp"
+                        android:textColor="#0A0707"
+
+                        />
+                    <RadioButton
+                        android:id="@+id/softEasyOp3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="C"
+                        android:textSize="12sp"
+                        android:textColor="#0A0707"
+
+                        />
+                    <RadioButton
+                        android:id="@+id/softEasyOp4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="D"
+                        android:textSize="12sp"
+                        android:textColor="#0A0707"
+
+                        >
 
 
+                    </RadioButton>
 
 
-                <Button
-                    android:id="@+id/softEasyOp3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="C"
-                    android:padding="8dp"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:layout_marginLeft="8dp"
-                    android:textStyle="bold"
-                    android:textColor="#0E0A0A">
-
-                </Button>
-
-                <Button
-                    android:id="@+id/softEasyOp4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:text="D"
-                    android:padding="8dp"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="#0E0A0A">
-
-                </Button>
+                </RadioGroup>
 
 
             </LinearLayout>

@@ -60,12 +60,15 @@ public class SoftwareSubActivity extends AppCompatActivity implements View.OnCli
         {
             case R.id.EasyQuizBtn:
 
+
                 Intent QustionActivity=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
+                QustionActivity.putExtra("type","EasyQuiz");
                 startActivity(QustionActivity);
                 break;
             case R.id.hardQuizBtn:
-                Intent QustionActivity2=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
-                startActivity(QustionActivity2);
+                Intent hard=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
+                hard.putExtra("type","HardQuiz");
+                startActivity(hard);
                 break;
 
         }

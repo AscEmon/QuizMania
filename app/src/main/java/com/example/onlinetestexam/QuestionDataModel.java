@@ -2,18 +2,19 @@ package com.example.onlinetestexam;
 
 public class QuestionDataModel {
 
-    String Question,A,B,C,D;
+    String Question,A,B,C,D,Answer;
     public QuestionDataModel()
     {
 
     }
 
-    public QuestionDataModel(String question, String a, String b, String c, String d) {
+    public QuestionDataModel(String question, String a, String b, String c, String d,String answer) {
         Question = question;
         A = a;
         B = b;
         C = c;
         D = d;
+        Answer=answer;
     }
 
     public String getQuestion() {
@@ -52,7 +53,16 @@ public class QuestionDataModel {
         return D;
     }
 
+    public String getAnswer() {
+        return Answer;
+    }
+
+    public void setAnswer(String answer) {
+        Answer = answer;
+    }
+
     public void setD(String d) {
         D = d;
     }
+
 }
