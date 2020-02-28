@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     EditText LoginEmaiText,LoginPasswordText;
-    Button LogInButton,facebookButton;
+    Button LogInButton;
     TextView SignUpText,forgotpassword;
     private FirebaseAuth mAuth;
     ProgressBar LoginProgress;
@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LogInButton=findViewById(R.id.loginButton);
         SignUpText=findViewById(R.id.SignUpTextView);
         forgotpassword=findViewById(R.id.ForgotPassword);
-       facebookButton=findViewById(R.id.facebook_login_button);
+
         forgotpassword.setOnClickListener(this);
         SignUpText.setOnClickListener(this);
         LogInButton.setOnClickListener(this);
-        facebookButton.setOnClickListener(this);
+
 
     }
 
@@ -82,12 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
 
-            case R.id.facebook_login_button:
-                Intent facbooklog=new Intent(MainActivity.this,NavigationDrawer.class);
-                startActivity(facbooklog);
 
-
-                break;
 
 
         }

@@ -120,6 +120,10 @@ public class NavigationDrawer extends AppCompatActivity {
                     case R.id.navi_Home:
                         Intent i=new Intent(getApplicationContext(),NavigationDrawer.class);
                         startActivity(i);
+                    case R.id.Ranking:
+                        Intent Ranking=new Intent(getApplicationContext(),RankingDashBoard.class);
+                        startActivity(Ranking);
+                        break;
 
 
                 }
