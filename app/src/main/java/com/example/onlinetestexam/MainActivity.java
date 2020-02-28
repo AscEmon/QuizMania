@@ -3,6 +3,7 @@ package com.example.onlinetestexam;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -50,6 +51,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LogInButton=findViewById(R.id.loginButton);
         SignUpText=findViewById(R.id.SignUpTextView);
         forgotpassword=findViewById(R.id.ForgotPassword);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
+
+        } else {
+            // No user is signed in
+
+        }
+
+
 
         forgotpassword.setOnClickListener(this);
         SignUpText.setOnClickListener(this);
