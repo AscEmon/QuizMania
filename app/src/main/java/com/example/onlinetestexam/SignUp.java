@@ -145,6 +145,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
 
         SignUpProgress.setVisibility(View.VISIBLE);
+
         mAuth.createUserWithEmailAndPassword(email,Password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 

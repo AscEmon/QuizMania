@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SignUpText=findViewById(R.id.SignUpTextView);
         forgotpassword=findViewById(R.id.ForgotPassword);
 
+
+
+
+        //one time login
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // User is signed in
@@ -60,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
 
 
-        } else {
+        }
+        else {
             // No user is signed in
 
         }

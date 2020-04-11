@@ -14,6 +14,8 @@ public class SoftwareSubActivity extends AppCompatActivity implements View.OnCli
     Toolbar toolbar;
     ActionBar actionBar;
     Button easyQuiz,hardQuiz;
+    Bundle bundle;
+    String check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,14 @@ public class SoftwareSubActivity extends AppCompatActivity implements View.OnCli
 
         easyQuiz=findViewById(R.id.EasyQuizBtn);
         hardQuiz=findViewById(R.id.hardQuizBtn);
+
+
+        bundle=getIntent().getExtras();
+        if(bundle!=null)
+        {
+            check=bundle.getString("subject");
+
+        }
 
         //Toolbar setup
         toolbar=findViewById(R.id.SoftwareDashToolBar);
@@ -34,6 +44,7 @@ public class SoftwareSubActivity extends AppCompatActivity implements View.OnCli
 
         easyQuiz.setOnClickListener(this);
         hardQuiz.setOnClickListener(this);
+
 
 
 
@@ -61,14 +72,39 @@ public class SoftwareSubActivity extends AppCompatActivity implements View.OnCli
             case R.id.EasyQuizBtn:
 
 
-                Intent QustionActivity=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
-                QustionActivity.putExtra("type","EasyQuiz");
-                startActivity(QustionActivity);
+                if(check.equals("DataCommunication"))
+                {
+                    Intent QustionActivity=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
+                    QustionActivity.putExtra("type","EasyQuiz");
+                    startActivity(QustionActivity);
+
+                }
+                else if(check.equals("Electrical Compound Circuit"))
+                {
+                    Intent QustionActivity=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
+                    QustionActivity.putExtra("type","EeeEasyQuiz");
+                    startActivity(QustionActivity);
+
+
+                }
+
                 break;
             case R.id.hardQuizBtn:
-                Intent hard=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
-                hard.putExtra("type","HardQuiz");
-                startActivity(hard);
+                if(check.equals("DataCommunication"))
+                {
+                    Intent hard=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
+                    hard.putExtra("type","HardQuiz");
+                    startActivity(hard);
+
+                }
+                else if(check.equals("Electrical Compound Circuit"))
+                {
+                    Intent hard=new Intent(SoftwareSubActivity.this,QuestionActivity.class);
+                    hard.putExtra("type","EeeHardQuiz");
+                    startActivity(hard);
+
+                }
+
                 break;
 
         }

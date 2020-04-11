@@ -88,6 +88,13 @@ public class NavigationDrawer extends AppCompatActivity {
 
                     Intent CseDash = new Intent(getApplicationContext(), CseDashBoard.class);
                     startActivity(CseDash);
+
+                }
+                else if(position==2)
+                {
+                    Intent EeeDash = new Intent(getApplicationContext(), EeeDashBoard.class);
+                    startActivity(EeeDash);
+
                 }
                 else
                 {
@@ -120,6 +127,7 @@ public class NavigationDrawer extends AppCompatActivity {
                     case R.id.navi_Home:
                         Intent i=new Intent(getApplicationContext(),NavigationDrawer.class);
                         startActivity(i);
+                        break;
                     case R.id.Ranking:
                         Intent Ranking=new Intent(getApplicationContext(),RankingDashBoard.class);
                         startActivity(Ranking);
@@ -127,10 +135,6 @@ public class NavigationDrawer extends AppCompatActivity {
 
 
                 }
-
-
-
-
 
                 return false;
 

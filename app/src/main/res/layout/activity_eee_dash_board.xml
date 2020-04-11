@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/naviDrawerId"
+    android:id="@+id/naviEeeDrawerId"
     tools:openDrawer="start"
-    tools:context=".NavigationDrawer">
+    tools:context=".EeeDashBoard">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/eeeDashToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/background"
@@ -23,25 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="18dp"
-        android:id="@+id/RecycleViewId"
-        android:padding="10dp">
+        android:paddingTop="5dp"
+        android:id="@+id/EeeDashRecycleViewId"
+        >
 
 
-        </androidx.recyclerview.widget.RecyclerView>
+        ></androidx.recyclerview.widget.RecyclerView>
 
 
-
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/NavigationDrawerId"
-        app:headerLayout="@layout/nav_header"
-        android:layout_gravity="start"
-        app:menu="@menu/nav_menu_layout">
-
-
-    </com.google.android.material.navigation.NavigationView>
 
 
 

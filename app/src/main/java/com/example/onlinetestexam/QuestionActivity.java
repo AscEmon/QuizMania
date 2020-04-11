@@ -39,7 +39,7 @@ import java.util.List;
 public class QuestionActivity extends AppCompatActivity  {
     Toolbar toolbar;
     ActionBar actionBar;
-    RadioButton op1,op2,op3,op4,bt;
+    RadioButton bt;
     TextView questionText;
     RadioGroup radiogroup;
     Button submitBtn;
@@ -48,8 +48,7 @@ public class QuestionActivity extends AppCompatActivity  {
     FirebaseAuth mAuth;
     String path,QuestionAnswer;
 
-    ArrayList<String> positionstores=new ArrayList<>();
-    String []positionsto=null;
+
     DatabaseReference reference;
     List<QuestionDataModel> questiondataModels;
     QuestionRecycleViewAdapter adapter;
@@ -88,8 +87,20 @@ public class QuestionActivity extends AppCompatActivity  {
 
             if (type.equals("HardQuiz")) {
                 path = "02/SoftwareHardQuiz";
-            } else if (type.equals("EasyQuiz")) {
+            }
+            else if (type.equals("EasyQuiz"))
+            {
                 path = "01/SoftwareEasyQuiz";
+            }
+            else if(type.equals("EeeEasyQuiz"))
+            {
+
+                path = "01/SoftwareEasyQuiz";
+            }
+            else if(type.equals("EeeHardQuiz"))
+            {
+
+                path = "02/SoftwareHardQuiz";
             }
 
         }

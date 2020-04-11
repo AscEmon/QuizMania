@@ -2,11 +2,8 @@ package com.example.onlinetestexam;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,23 +23,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CseDashBoard extends AppCompatActivity {
-
+public class EeeDashBoard extends AppCompatActivity {
 
     Toolbar toolbar;
     ActionBar actionBar;
     FirebaseAuth mAuth;
 
     DatabaseReference reference;
-    List<CseDataModel> csedataModels;
-    CseRecycleViewAdapter adapter;
-    RecyclerView cserecyclerView;
-
+    List<EeeDataModel> eeedataModels;
+    EeeRecycleViewAdapter adapter;
+    RecyclerView eeerecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cse_dash_board);
+        setContentView(R.layout.activity_eee_dash_board);
 
 
 
@@ -51,10 +45,10 @@ public class CseDashBoard extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
 
         //Toolbar setup
-        toolbar=findViewById(R.id.cseDashToolbar);
+        toolbar=findViewById(R.id.eeeDashToolbar);
         setSupportActionBar(toolbar);
         actionBar=getSupportActionBar();
-        actionBar.setTitle("CseDashBoard");
+        actionBar.setTitle("EeeDashBoard");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
@@ -62,17 +56,17 @@ public class CseDashBoard extends AppCompatActivity {
 
 
 
-        reference= FirebaseDatabase.getInstance().getReference("CseData");
-        csedataModels = new ArrayList<>();
+        reference= FirebaseDatabase.getInstance().getReference("EeeData");
+        eeedataModels = new ArrayList<>();
 
-        cserecyclerView=findViewById(R.id.CseDashRecycleViewId);
-        adapter = new CseRecycleViewAdapter(this,csedataModels);
-        cserecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cserecyclerView.setHasFixedSize(true);
-        cserecyclerView.setAdapter(adapter);
+        eeerecyclerView=findViewById(R.id.EeeDashRecycleViewId);
+        adapter = new EeeRecycleViewAdapter(this,eeedataModels);
+        eeerecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        eeerecyclerView.setHasFixedSize(true);
+        eeerecyclerView.setAdapter(adapter);
 
 
-        adapter.setOnItemClickListener(new CseRecycleViewAdapter.ClickSoftListener() {
+        adapter.setOnItemClickListener(new EeeRecycleViewAdapter.ClickSoftListener() {
             @Override
             public void onItemClick(int position, View v) {
 
@@ -80,7 +74,7 @@ public class CseDashBoard extends AppCompatActivity {
                 if(position==1)
                 {
                     Intent setsSoftware=new Intent(getApplicationContext(),SoftwareSubActivity.class);
-                    setsSoftware.putExtra("subject","DataCommunication");
+                    setsSoftware.putExtra("subject","Electrical Compound Circuit");
                     startActivity(setsSoftware);
                 }
                 else
@@ -102,14 +96,15 @@ public class CseDashBoard extends AppCompatActivity {
 
                 try {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        CseDataModel model = ds.getValue(CseDataModel.class);
-                        csedataModels.add(model);
+
+                        EeeDataModel model = ds.getValue(EeeDataModel.class);
+                        eeedataModels.add(model);
                         adapter.notifyDataSetChanged();
                     }
                 }
 
                 catch (Exception e){
-                    Toast.makeText(CseDashBoard.this, "Could not parse the data properly", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EeeDashBoard.this, "Could not parse the data properly", Toast.LENGTH_LONG).show();
 
 
                 }
@@ -122,7 +117,12 @@ public class CseDashBoard extends AppCompatActivity {
             }
         });
 
+
+
+
+
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
