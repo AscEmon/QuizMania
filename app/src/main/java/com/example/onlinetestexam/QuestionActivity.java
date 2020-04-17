@@ -86,21 +86,21 @@ public class QuestionActivity extends AppCompatActivity  {
 
 
             if (type.equals("HardQuiz")) {
-                path = "02/SoftwareHardQuiz";
+                path = "SoftwareHardQuiz";
             }
             else if (type.equals("EasyQuiz"))
             {
-                path = "01/SoftwareEasyQuiz";
+                path = "SoftwareEasyQuiz";
             }
             else if(type.equals("EeeEasyQuiz"))
             {
 
-                path = "01/SoftwareEasyQuiz";
+                path = "EeeEasyQuiz";
             }
             else if(type.equals("EeeHardQuiz"))
             {
 
-                path = "02/SoftwareHardQuiz";
+                path = "EeeHardQuiz";
             }
 
         }

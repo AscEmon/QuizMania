@@ -77,7 +77,7 @@ public class CseDashBoard extends AppCompatActivity {
             public void onItemClick(int position, View v) {
 
 
-                if(position==1)
+                if(position==0)
                 {
                     Intent setsSoftware=new Intent(getApplicationContext(),SoftwareSubActivity.class);
                     setsSoftware.putExtra("subject","DataCommunication");
